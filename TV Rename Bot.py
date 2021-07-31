@@ -23,8 +23,7 @@ def tv_rename(file_name):
         print("File not accessible or doesn't exist")
     finally:
         file = open(renaming_history, "a+")
-        file.write(file_name + " \n")
-    file.close()
+        file.write("Input: " + file_name + " \n")
 
     file_name, file_extension = os.path.splitext(file_name)     # Remove and save file extension
 
@@ -68,6 +67,8 @@ def tv_rename(file_name):
     file_name = file_name.replace("  ", " ")        # Double check for created double spaces
     file_name += "]" + file_extension       # Re-attach the file extension
     file_name = file_name.replace(" ]", "]").replace(" - [", " [")        # Fix bug caused by repeat uses
+    file.write("Output: " + file_name + " \n")
+    file.close()
     print("Finished: " + file_name + "\n")
     return file_name
 
