@@ -4,7 +4,7 @@ import os
 # Creator: Tobechukwu N. Njoku
 # Last Update: 2021/07/31
 
-regex_audio = re.compile(r'.*([2-7] [0-2][ ])')       # Using Regular expression to fix audio
+regex_audio = re.compile(r'.*([2-7] [0-2][ ])')       # Using Regular expression to find the audio format
 regex_year = re.compile(r'.*( [1-2][0-9]{3} )')     # Using Regular expression to find the year
 regex_resolutions = re.compile(r'.*([1-2][0-9]{3}[p] )')     # Using Regular expression to find the resolution
 regex_episode_info = re.compile(r'.*( [s][0-9]{2}[e][0-9]{2} )', re.IGNORECASE)     # Using Regular expression to find the episode info
@@ -85,7 +85,8 @@ def tv_parsing():
 
             print(image_dir)
             image_dir = os.path.join(image_dir, file_name)  # Create the full path to filenames
-            os.rename(os.path.join(tv_show_directory, file_name), os.path.join(tv_show_directory, ''.join([str(tv_rename(file_name)), ])))
+            os.rename(os.path.join(tv_show_directory, file_name), os.path.join(tv_show_directory,
+                                                                               ''.join([str(tv_rename(file_name)), ])))
 
     exit()
 
